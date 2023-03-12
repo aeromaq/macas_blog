@@ -151,7 +151,7 @@ STATIC_URL = "/static/"
 
 MEDIA_ROOT = '/var/opt/macas_blog/media/'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/images/'
 
 # Wagtail settings
 
