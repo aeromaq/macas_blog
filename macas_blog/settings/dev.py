@@ -7,7 +7,8 @@ DEBUG = False
 SECRET_KEY = "django-insecure-byd+#(-wq+-@qu#$0zy)lh_k+79tm*mmzw^g$w(4d#3_9=!6gy"
 
 # SECURITY WARNING: define the correct hosts in production!
-ALLOWED_HOSTS = ['https://*.macas.tech', 'https://macas.tech', 'https://*.127.0.0.1', '206.189.153.198']
+CSRF_TRUSTED_ORIGINS = ['https://*.macas.tech','https://macas.tech','https://*.127.0.0.1','http://206.189.153.198', '206.189.153.198']
+ALLOWED_HOSTS = ['https://*.macas.tech', 'https://macas.tech', 'https://*.127.0.0.1', '206.189.153.198', 'http://206.189.153.198']
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
