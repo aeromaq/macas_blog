@@ -9,6 +9,7 @@ html {
 }
 
 body {
+    background-color: #4ac1f7;
     max-width: 960px;
     min-height: 100vh;
     margin: 0 auto;
