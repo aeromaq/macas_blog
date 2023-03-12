@@ -146,7 +146,7 @@ STATICFILES_DIRS = [
 # See https://docs.djangoproject.com/en/4.1/ref/contrib/staticfiles/#manifeststaticfilesstorage
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-STATIC_ROOT = '/var/cache/$DJANGO_PROJECT/static/'
+STATIC_ROOT = '/var/cache/macas_blog/static/'
 STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
