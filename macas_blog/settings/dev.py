@@ -9,7 +9,7 @@ SECRET_KEY = "django-insecure-byd+#(-wq+-@qu#$0zy)lh_k+79tm*mmzw^g$w(4d#3_9=!6gy
 # SECURITY WARNING: define the correct hosts in production!
 CSRF_TRUSTED_ORIGINS = ['https://*.macas.tech', 'https://macas.tech', 'https://*.127.0.0.1', 'http://206.189.153.198']
 ALLOWED_HOSTS = ['https://*.macas.tech', 'https://macas.tech', 'www.macas.tech', 'macas.tech', 'https://*.127.0.0.1',
-                 '206.189.153.198']
+                 '206.189.153.198', '127.0.0.1:8000', '127.0.0.1']
 USE_X_FORWARDED_PORT = True
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
