@@ -23,6 +23,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
+    'storages',
     'whitenoise.runserver_nostatic',
     "home",
     "blog",
@@ -62,7 +63,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "macas_blog.urls"
-CSRF_TRUSTED_ORIGINS = ['https://*.macas.tech', 'macas.tech', 'https://macas.tech', 'https://*.127.0.0.1', 'http://206.189.153.198',
+CSRF_TRUSTED_ORIGINS = ['https://*.macas.tech', 'macas.tech', 'https://macas.tech', 'https://*.127.0.0.1',
+                        'http://206.189.153.198',
                         '206.189.153.198']
 ALLOWED_HOSTS = ['https://*.macas.tech', 'macas.tech', 'https://macas.tech', 'https://*.127.0.0.1', '206.189.153.198',
                  'http://206.189.153.198']
@@ -137,21 +139,37 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
-STATICFILES_DIRS = [
-    os.path.join(PROJECT_DIR, "static"),
-]
+USE_SPACES = 'TRUE'
+
+if USE_SPACES:
+    AWS_ACCESS_KEY_ID = 'DO003BAK7UJQX7CE3NJC'
+    AWS_SECRET_ACCESS_KEY = 'QJCHRNtfmsywZQiQhdz2RFhoALGnwVeWZ6HsOJpzdpI'
+    AWS_STORAGE_BUCKET_NAME = 'macas-tech'
+    AWS_S3_ENDPOINT_URL = 'https://macas-tech.sgp1.digitaloceanspaces.com'
+    AWS_S3_OBJECT_PARAMETERS = {
+        'CacheControl': 'max-age=86400',
+    }
+    AWS_DEFAULT_ACL = 'public-read'
+    AWS_LOCATION = 'static'
+    PUBLIC_MEDIA_LOCATION = 'media'
+    STATIC_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
+    MEDIA_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, PUBLIC_MEDIA_LOCATION)
+    STATICFILES_STORAGE = "storages.backends.s3boto3.S3boto3Storage"
+    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3boto3Storage"
+else:
+    STATIC_URL = '/static/'
+    STATIC_ROOT = BASE_DIR / 'staticfiels'
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'mediafiels'
+
+STATICFILES_DIRS = {
+    os.path.join(BASE_DIR, 'static')
+}
 
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
 # JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
 # See https://docs.djangoproject.com/en/4.1/ref/contrib/staticfiles/#manifeststaticfilesstorage
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-STATIC_ROOT = '/var/cache/macas_blog/static/'
-STATIC_URL = "/static/"
-
-MEDIA_ROOT = '/var/opt/macas_blog/media/'
-
-MEDIA_URL = 'https://macas.tech/media/'
 
 # Wagtail settings
 
