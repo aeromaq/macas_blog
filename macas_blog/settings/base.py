@@ -153,8 +153,7 @@ if USE_SPACES:
     PUBLIC_MEDIA_LOCATION = 'media'
     STATIC_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
     MEDIA_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, PUBLIC_MEDIA_LOCATION)
-    STATICFILES_STORAGE = "storages.backends.s3boto3.S3boto3Storage"
-    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3boto3Storage"
+    STORAGES = {"staticfiles": "storages.backends.s3boto3.S3StaticStorage"}
 else:
     STATIC_URL = '/static/'
     STATIC_ROOT = BASE_DIR / 'staticfiels'
