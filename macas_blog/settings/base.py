@@ -138,32 +138,25 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
-USE_SPACES = 'TRUE'
-
-if USE_SPACES:
-    AWS_ACCESS_KEY_ID = 'DO003BAK7UJQX7CE3NJC'
-    AWS_SECRET_ACCESS_KEY = 'QJCHRNtfmsywZQiQhdz2RFhoALGnwVeWZ6HsOJpzdpI'
-    AWS_STORAGE_BUCKET_NAME = 'macas-tech'
-    AWS_S3_ENDPOINT_URL = 'https://macas-tech.sgp1.digitaloceanspaces.com'
-    AWS_S3_OBJECT_PARAMETERS = {
-        'CacheControl': 'max-age=86400',
-    }
-    AWS_DEFAULT_ACL = 'public-read'
-    AWS_LOCATION = 'static'
-    PUBLIC_MEDIA_LOCATION = 'media'
-    STATIC_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
-    MEDIA_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, PUBLIC_MEDIA_LOCATION)
-    STORAGES = {"staticfiles": "storages.backends.s3boto3.S3StaticStorage"}
-else:
-    STATIC_URL = '/static/'
-    STATIC_ROOT = BASE_DIR / 'staticfiles'
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = BASE_DIR / 'mediafiles'
+AWS_ACCESS_KEY_ID = 'DO003BAK7UJQX7CE3NJC'
+AWS_SECRET_ACCESS_KEY = 'QJCHRNtfmsywZQiQhdz2RFhoALGnwVeWZ6HsOJpzdpI'
+AWS_STORAGE_BUCKET_NAME = 'macas-tech'
+AWS_S3_ENDPOINT_URL = 'https://macas-tech.sgp1.digitaloceanspaces.com'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_DEFAULT_ACL = 'public-read'
+AWS_LOCATION = 'static'
+PUBLIC_MEDIA_LOCATION = 'media'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, PUBLIC_MEDIA_LOCATION)
+STORAGES = {"staticfiles": "storages.backends.s3boto3.S3StaticStorage"}
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'mediafiles'
+
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
