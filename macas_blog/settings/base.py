@@ -153,9 +153,9 @@ MEDIA_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, PUBLIC_MEDIA_LOCATION)
 STORAGES = {"staticfiles": "storages.backends.s3boto3.S3StaticStorage"}
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'mediafiles'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
