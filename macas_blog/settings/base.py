@@ -160,6 +160,10 @@ else:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'mediafiles'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
