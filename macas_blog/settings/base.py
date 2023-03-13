@@ -149,9 +149,9 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_ROOT = '/var/cache/macas_blog/static/'
 STATIC_URL = "/static/"
 
-MEDIA_ROOT = '/var/opt/macas_blog/media/images/'
+MEDIA_ROOT = '/var/opt/macas_blog/media/'
 
-MEDIA_URL = '/images/'
+MEDIA_URL = 'https://macas.tech/media/'
 
 # Wagtail settings
 
