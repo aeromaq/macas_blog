@@ -156,9 +156,9 @@ if USE_SPACES:
     STORAGES = {"staticfiles": "storages.backends.s3boto3.S3StaticStorage"}
 else:
     STATIC_URL = '/static/'
-    STATIC_ROOT = BASE_DIR / 'staticfiels'
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
     MEDIA_URL = '/media/'
-    MEDIA_ROOT = BASE_DIR / 'mediafiels'
+    MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
