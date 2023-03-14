@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     "home",
     "blog",
+    "utils",
     "search",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
@@ -148,6 +149,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 AWS_DEFAULT_ACL = 'public-read'
 AWS_LOCATION = 'static'
 PUBLIC_MEDIA_LOCATION = 'media'
@@ -155,8 +157,9 @@ STATIC_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, PUBLIC_MEDIA_LOCATION)
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-
-
+WAGTAILIMAGES_IMAGE_MODEL = 'utils.CustomImage'
+AWS_S3_FILE_OVERWRITE = False
+AWS_QUERYSTRING_AUTH = False
 
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
 # JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
@@ -177,4 +180,4 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-WAGTAILADMIN_BASE_URL = "http://example.com"
+WAGTAILADMIN_BASE_URL = "https://macas.tech"
