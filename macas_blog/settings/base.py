@@ -149,6 +149,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 AWS_DEFAULT_ACL = 'public-read'
 AWS_LOCATION = 'static'
