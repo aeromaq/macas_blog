@@ -12,7 +12,8 @@ ALLOWED_HOSTS = ['https://*.macas.tech', 'https://macas.tech', 'www.macas.tech',
                  '206.189.153.198', '127.0.0.1:8000', '127.0.0.1']
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-
+USE_X_FORWARDED_PORT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 try:
     from .local import *
 except ImportError:
