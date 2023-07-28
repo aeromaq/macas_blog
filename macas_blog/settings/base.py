@@ -139,33 +139,19 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
-AWS_ACCESS_KEY_ID = 'DO003BAK7UJQX7CE3NJC'
-AWS_SECRET_ACCESS_KEY = 'QJCHRNtfmsywZQiQhdz2RFhoALGnwVeWZ6HsOJpzdpI'
-AWS_STORAGE_BUCKET_NAME = 'macas-tech'
-AWS_S3_ENDPOINT_URL = 'https://macas-tech.sgp1.digitaloceanspaces.com'
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-AWS_DEFAULT_ACL = 'public-read'
-AWS_LOCATION = 'static'
-PUBLIC_MEDIA_LOCATION = 'media'
-STATIC_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
-MEDIA_URL = "https://%s/%s/" % (AWS_S3_ENDPOINT_URL, PUBLIC_MEDIA_LOCATION)
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-WAGTAILIMAGES_IMAGE_MODEL = 'utils.CustomImage'
-AWS_S3_FILE_OVERWRITE = False
-AWS_QUERYSTRING_AUTH = False
 
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
 # JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
 # See https://docs.djangoproject.com/en/4.1/ref/contrib/staticfiles/#manifeststaticfilesstorage
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_DIR, "static"),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "/static/"
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
 
 # Wagtail settings
 
