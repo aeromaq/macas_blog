@@ -1,488 +1,423 @@
 {% extends 'base.html' %}
 {% block extra_css %}
     <style>
-        h1.notify-desc {
-            font-weight: 300;
-        }
+    h1.notify-desc {
+      font-weight: 300;
+    }
+    h1,
+    h2,
+    h3 {
+      line-height: 1.6;
+      color: #3c3c3c;
+    }
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .hero-container {
+      text-align: center;
+      background-color: #ebebeb;
+      padding-bottom: 10px;
+    }
+    .hero-details {
+      margin-bottom: 20px;
+      background-color: white;
+      margin-top: -6px;
+      margin-left: 20px;
+      margin-right: 20px;
+      padding: 30px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      grid-area: hero-details;
+    }
 
-        h1,
-        h2,
-        h3 {
-            line-height: 1.6;
-            color: #3c3c3c;
-        }
+    .hero-img img {
+      width: 100%;
 
-        * {
-            padding: 0;
-            margin: 0;
-        }
+      object-fit: contain;
+      grid-area: hero-img;
+    }
+    .anap-ph-logo {
+      height: 83.22px;
+      object-fit: contain;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .coming-soon {
+      height: 46.32px;
+    }
+    .input-group {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      align-items: center;
+    }
+    .input-group input[type="email"] {
+      border: 1px solid #707070;
+      width: 100%;
+      height: 45px;
+      border-radius: 30px;
+      padding-left: 20px;
+    }
+    .send {
+      background: linear-gradient(180deg, #ffd6d6 0%, #c47777 100%);
+      border: none;
+      width: 120px;
+      height: 50px;
+      position: absolute;
+      right: 35px;
+      float: right;
+      border-radius: 30px;
+    }
+    .socials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 15px;
+    }
+    .socials img {
+      margin-left: 10px;
+      height: 30px;
+    }
+    .socials > .instagram {
+      height: 35px;
+    }
+    .brand-lineup-container {
+      margin: 0;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
 
-        .hero-container {
-            text-align: center;
-            background-color: #ebebeb;
-            padding-bottom: 10px;
-        }
+      text-align: center;
+    }
 
-        .hero-details {
-            margin-top: -6px;
-            margin-bottom: 20px;
-            background-color: white;
-            margin-left: 20px;
-            margin-right: 20px;
-            padding: 30px;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            grid-area: hero-details;
-        }
+    .card img {
+      width: 80%;
+      align-items: center;
+    }
+    .subdescription,
+    .anap-kids-description h1,
+    .anap-subbrand-description,
+    .description,
+    .map-img-desc,
+    .map-title-text {
+      margin: 30px 75px;
+    }
+    .anap-kids-description h1 {
+      font-family: "Nunito Sans", "sans-serif";
+      font-weight: 300;
+      font-size: 18px;
+    }
+    .title,
+    .title-wrapper-with-link {
+      margin: 0;
+    }
+    .title h1 {
+      font-family: "Oswald", sans-serif;
+      font-size: 50px;
+      font-weight: 400;
+      margin: 36px 0px;
+    }
+    .anap-card img {
+      margin-top: 56px;
+    }
+    .description h2 {
+      font-family: "Nunito Sans", "sans-serif";
+      font-weight: 300;
+      font-size: 18px;
+    }
+    /* MAP CONTAINER */
 
-        .hero-img img {
-            width: 100%;
+    .map-container {
+      margin: 0;
+      background-color: white;
+      padding-top: 40px;
+      text-align: center;
+    }
+    .map-title-text h1 {
+      font-family: "Oswald", sans-serif;
+      font-size: 50px;
+      line-height: 1.2;
+    }
 
-            object-fit: contain;
-            grid-area: hero-img;
-        }
+    .map-img img {
+      width: 90%;
+      object-fit: contain;
+    }
+    .map-img-web {
+      display: none;
+    }
+    .map-img {
+      padding: 60px 45px;
+    }
+    .map-img-desc h2 {
+      font-family: "Nunito Sans", sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      margin-bottom: 84px;
+    }
+    .branch-card img {
+      width: 100%;
+      margin-top: -5px;
+    }
 
-        .anap-ph-logo {
-            height: 83.22px;
-            object-fit: contain;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
+    /* Fumiya Container */
+    .fumiya-container {
+      text-align: center;
+    }
+    .fumiya-title-text h1 {
+      font-family: "Oswald", sans-serif;
+      font-size: 25px;
+      margin: 50px 30px;
+    }
+    video {
+      width: 100%;
+      height: auto;
+    }
 
-        .coming-soon {
-            height: 46.32px;
-        }
+    @media (min-width: 1280px) {
+      h1,
+      h2,
+      h3 {
+        line-height: 1.6;
+        color: #3c3c3c;
+      }
+      .hero-container {
+        margin: 0;
+        padding-top: 90px;
+        padding-bottom: 90px;
+        padding-left: 50px;
+        padding-right: 50px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+      }
+      .hero-details {
+        width: 100%;
+        background-color: white;
+        margin: 0;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        padding: 59px 195px;
 
-        .input-group {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-            align-items: center;
-        }
+        justify-content: center;
+      }
+      .send {
+        position: relative;
+      }
+      .hero-img img {
+        margin-top: 5px;
+        min-width: 473px;
+        max-width: 453px;
+        min-height: 511px;
+        max-height: 548px;
+      }
+      .anap-ph-logo {
+        height: 130px;
+      }
+      .coming-soon {
+        height: 80px;
+        margin-bottom: 30px;
+      }
+      input[type="email"] {
+        max-width: 920px;
+      }
 
-        .input-group input[type="email"] {
-            border: 1px solid #707070;
-            width: 100%;
-            height: 45px;
-            border-radius: 30px;
-            padding-left: 20px;
-        }
+      .title h1 {
+        margin-bottom: 30px;
+        font-size: 50px;
+      }
+      .description h2 {
+        font-size: 25px;
+        margin-bottom: 15px;
+      }
+      .anap-subbrand-description {
+        padding: 30px 46px;
+        display: flex;
+        text-align: left;
+        align-items: center;
+        background-color: #f5f5f5;
 
-        .send {
-            background: linear-gradient(180deg, #ffd6d6 0%, #c47777 100%);
-            border: none;
-            width: 120px;
-            height: 50px;
-            position: absolute;
-            right: 35px;
-            float: right;
-            border-radius: 30px;
-        }
+        grid-area: subbrand-description;
+      }
+      .subdescription {
+        grid-area: subdescription;
+        text-align: left;
 
-        .socials {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 15px;
-        }
-
-        .socials img {
-            margin-left: 10px;
-            height: 30px;
-        }
-
-        .socials > .instagram {
-            height: 35px;
-        }
-
-        .brand-lineup-container {
-            margin: 0;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-
-            text-align: center;
-        }
-
-        .card img {
-            width: 80%;
-            align-items: center;
-        }
-
-        .subdescription,
-        .anap-kids-description h1,
-        .anap-subbrand-description,
-        .description,
-        .map-img-desc,
-        .map-title-text {
-            margin: 30px 75px;
-        }
-
-        .anap-kids-description h1 {
-            font-family: "Nunito Sans", "sans-serif";
-            font-weight: 300;
-            font-size: 18px;
-        }
-
-        .title,
-        .title-wrapper-with-link {
-            margin: 0;
-        }
-
-        .title h1 {
-            font-family: "Oswald", sans-serif;
-            font-size: 50px;
-            font-weight: 400;
-            margin: 36px 0px;
-        }
-
-        .anap-card img {
-            margin-top: 56px;
-        }
-
-        .description h2 {
-            font-family: "Nunito Sans", "sans-serif";
-            font-weight: 300;
-            font-size: 18px;
-        }
-
-        /* MAP CONTAINER */
-
-        .map-container {
-            margin: 0;
-            background-color: white;
-            padding-top: 40px;
-            text-align: center;
-        }
-
-        .map-title-text h1 {
-            font-family: "Oswald", sans-serif;
-            font-size: 50px;
-            line-height: 1.2;
-        }
-
-        .map-img img {
-            width: 90%;
-            object-fit: contain;
-        }
-
-        .map-img-web {
-            display: none;
-        }
-
-        .map-img {
-            padding: 60px 45px;
-        }
-
-        .map-img-desc h2 {
-            font-family: "Nunito Sans", sans-serif;
-            font-weight: 400;
-            font-size: 17px;
-        }
-
-        .branch-card img {
-            width: 100%;
-        }
-
-        /* Fumiya Container */
-        .fumiya-container {
-            text-align: center;
-        }
-
-        .fumiya-title-text h1 {
-            font-family: "Oswald", sans-serif;
-            font-size: 25px;
-            margin: 50px 30px;
-        }
-
-        video {
-            width: 100%;
-            height: auto;
-        }
-
-        @media (min-width: 1280px) {
-            h1,
-            h2,
-            h3 {
-                line-height: 1.6;
-                color: #3c3c3c;
-            }
-
-            .hero-container {
-                margin: 0;
-                padding-top: 90px;
-                padding-bottom: 90px;
-                padding-left: 50px;
-                padding-right: 50px;
-                display: flex;
-                flex-direction: row-reverse;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .hero-details {
-                width: 100%;
-                background-color: white;
-                margin: 0;
-                border-bottom-left-radius: 0px;
-                border-bottom-right-radius: 0px;
-                padding: 59px 195px;
-
-                justify-content: center;
-            }
-
-            .send {
-                position: relative;
-            }
-
-            .hero-img img {
-                margin-top: 5px;
-                min-width: 473px;
-                max-width: 453px;
-                min-height: 511px;
-                max-height: 548px;
-            }
-
-            .anap-ph-logo {
-                height: 130px;
-            }
-
-            .coming-soon {
-                height: 80px;
-                margin-bottom: 30px;
-            }
-
-            input[type="email"] {
-                max-width: 920px;
-            }
-
-            .title h1 {
-                margin-bottom: 30px;
-                font-size: 50px;
-            }
-
-            .description h2 {
-                font-size: 25px;
-                margin-bottom: 15px;
-            }
-
-            .anap-subbrand-description {
-                padding: 30px 46px;
-                display: flex;
-                text-align: left;
-                align-items: center;
-                background-color: #f5f5f5;
-
-                grid-area: subbrand-description;
-            }
-
-            .subdescription {
-                grid-area: subdescription;
-                text-align: left;
-
-                margin: 0px 0px 0px 0px;
-            }
-
-            /* Brand Lineup Container */
-            .brand-lineup-container {
-                background-color: white;
-                display: grid;
-                padding: 50px 100px;
-                margin: 0;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                column-gap: 20px;
-                grid-template-areas:
+        margin: 0px 0px 0px 0px;
+      }
+      /* Brand Lineup Container */
+      .brand-lineup-container {
+        background-color: white;
+        display: grid;
+        padding: 50px 100px;
+        margin: 0;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-gap: 20px;
+        grid-template-areas:
           "title title title title"
           "description description description description"
           "subdescription subdescription subdescription subdescription"
           "anap-card anap-mimpi-card anap-chille-card anap-latina-card"
           "anap-girl anap-kids anap-settissimo anap-anlibery"
           "anap-kids-desc subbrand-description subbrand-description subbrand-description ";
-            }
+      }
 
-            .card img,
-            .card-banner {
-                object-fit: contain;
-                width: 70%;
-            }
+      .card img,
+      .card-banner {
+        object-fit: contain;
+        width: 70%;
+      }
+      .title {
+        font-family: "Oswald", sans-serif;
+        grid-area: title;
+        text-align: left;
+      }
+      .description {
+        margin: 0;
+        font-family: "Nunito Sans", "sans-serif";
+        font-weight: 300;
+        font-size: 18px;
+        grid-area: description;
+        text-align: left;
+      }
 
-            .title {
-                font-family: "Oswald", sans-serif;
-                grid-area: title;
-                text-align: left;
-            }
+      .card img {
+        padding: 0;
+        margin: 0;
+      }
+      .anap-card,
+      .anap-mimpi,
+      .anap-chille,
+      .anap-latina {
+        margin-top: 50px;
+      }
+      .anap-card {
+        grid-area: anap-card;
+      }
+      .anap-mimpi {
+        grid-area: anap-mimpi-card;
+      }
+      .anap-chille {
+        grid-area: anap-chille-card;
+      }
+      .anap-latina {
+        grid-area: anap-latina-card;
+      }
+      .anap-girl-card {
+        grid-area: anap-girl;
+      }
+      .anap-kids-card {
+        grid-area: anap-kids;
+      }
+      .anap-settissimo-card {
+        grid-area: anap-settissimo;
+      }
+      .anap-anliberty-card {
+        grid-area: anap-anliberty;
+      }
+      .anap-kids-description h1 {
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 17px;
+        font-weight: 300;
+        margin: 0;
+        width: 100%;
+        padding: 10px;
+        background-color: #f5f5f5;
+      }
+      .anap-kids-description {
+        padding: 30px 40px;
+        margin: 0;
+        display: flex;
+        text-align: left;
+        align-items: center;
 
-            .description {
-                margin: 0;
-                font-family: "Nunito Sans", "sans-serif";
-                font-weight: 300;
-                font-size: 18px;
-                grid-area: description;
-                text-align: left;
-            }
-
-            .card img {
-                padding: 0;
-                margin: 0;
-            }
-
-            .anap-card,
-            .anap-mimpi,
-            .anap-chille,
-            .anap-latina {
-                margin-top: 50px;
-            }
-
-            .anap-card {
-                grid-area: anap-card;
-            }
-
-            .anap-mimpi {
-                grid-area: anap-mimpi-card;
-            }
-
-            .anap-chille {
-                grid-area: anap-chille-card;
-            }
-
-            .anap-latina {
-                grid-area: anap-latina-card;
-            }
-
-            .anap-girl-card {
-                grid-area: anap-girl;
-            }
-
-            .anap-kids-card {
-                grid-area: anap-kids;
-            }
-
-            .anap-settissimo-card {
-                grid-area: anap-settissimo;
-            }
-
-            .anap-anliberty-card {
-                grid-area: anap-anliberty;
-            }
-
-            .anap-kids-description h1 {
-                font-family: "Nunito Sans", sans-serif;
-                font-size: 17px;
-                font-weight: 300;
-                margin: 0;
-                width: 100%;
-                padding: 10px;
-                background-color: #f5f5f5;
-            }
-
-            .anap-kids-description {
-                padding: 30px 40px;
-                margin: 0;
-                display: flex;
-                text-align: left;
-                align-items: center;
-
-                grid-area: anap-kids-desc;
-            }
-
-            .map-container {
-                margin: 0;
-                background-color: white;
-                padding: 50px 100px;
-                display: grid;
-                grid-template-columns: 3;
-                grid-template-areas:
+        grid-area: anap-kids-desc;
+      }
+      .map-container {
+        margin: 0;
+        background-color: white;
+        padding: 50px 100px;
+        display: grid;
+        grid-template-columns: 3;
+        grid-template-areas:
           "map-title map-title map-title"
           "map-img map-img map-img"
           "map-desc map-desc map-desc"
           "branch-1 branch-2 branch-3";
-            }
+      }
+      .map-img-desc {
+        margin: 50px 450px;
 
-            .map-img-desc {
-                margin: 50px 450px;
+        grid-area: map-desc;
+      }
+      .map-img-desc h2 {
+        font-size: 17px;
+      }
+      .map-img-web img {
+        margin-top: 55px;
+        width: 85%;
+        object-fit: contain;
+      }
+      .map-img-web {
+        display: block;
+        grid-area: map-img;
+      }
+      .map-img {
+        display: none;
+      }
+      .map-title-text > h1 {
+        font-size: 40px;
+      }
+      .map-title-text {
+        margin: 0;
 
-                grid-area: map-desc;
-            }
+        text-align: left;
+        grid-area: map-title;
+      }
+      .branch-card > img {
+        width: 90%;
+      }
 
-            .map-img-desc h2 {
-                font-size: 17px;
-            }
-
-            .map-img-web img {
-                margin-top: 55px;
-                width: 85%;
-                object-fit: contain;
-            }
-
-            .map-img-web {
-                display: block;
-                grid-area: map-img;
-            }
-
-            .map-img {
-                display: none;
-            }
-
-            .map-title-text > h1 {
-                font-size: 40px;
-            }
-
-            .map-title-text {
-                margin: 0;
-
-                text-align: left;
-                grid-area: map-title;
-            }
-
-            .branch-card > img {
-                width: 90%;
-            }
-
-            .branch-1 {
-                grid-area: branch-1;
-            }
-
-            .branch-2 {
-                grid-area: branch-2;
-            }
-
-            .branch-3 {
-                grid-area: branch-3;
-            }
-
-            .fumiya-container {
-                background-color: #fafafa;
-                padding: 50px 100px;
-            }
-
-            .fumiya-title-text h1 {
-                text-align: left;
-                font-size: 30px;
-                margin-bottom: 20px 0px;
-            }
-
-            video {
-                width: 80%;
-                height: auto;
-            }
-        }
-
-        @media (min-width: 1440px) {
-            h1,
-            h2,
-            h3 {
-                line-height: 1.6;
-            }
-        }
-
-        @media (min-width: 1920px) {
-            h1,
-            h2,
-            h3 {
-                line-height: 1.6;
-            }
-        }
-    </style>
+      .branch-1 {
+        grid-area: branch-1;
+      }
+      .branch-2 {
+        grid-area: branch-2;
+      }
+      .branch-3 {
+        grid-area: branch-3;
+      }
+      .fumiya-container {
+        background-color: #fafafa;
+        padding: 50px 100px;
+      }
+      .fumiya-title-text h1 {
+        text-align: left;
+        font-size: 30px;
+        margin-bottom: 20px 0px;
+      }
+      video {
+        width: 80%;
+        height: auto;
+      }
+    }
+    @media (min-width: 1440px) {
+      h1,
+      h2,
+      h3 {
+        line-height: 1.6;
+      }
+    }
+    @media (min-width: 1920px) {
+      h1,
+      h2,
+      h3 {
+        line-height: 1.6;
+      }
+    }
+  </style>
 {% endblock %}
 {% block content %}
 
