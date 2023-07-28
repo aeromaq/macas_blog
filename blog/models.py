@@ -13,6 +13,8 @@ class BlogIndexPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('intro')
     ]
+class TestPage(Page):
+    intro = models.CharField(max_length=250)
 
 class BlogPage(Page):
     date = models.DateField("Post date")
