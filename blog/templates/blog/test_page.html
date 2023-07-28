@@ -1,640 +1,546 @@
 {% extends 'base.html' %}
 {% block extra_css %}
-    <style>
-        h1.notify-desc {
-            font-weight: 300;
-        }
+      <style>
+    h1.notify-desc {
+      font-weight: 300;
+    }
+    h1,
+    h2,
+    h3 {
+      line-height: 1.6;
+      color: #3c3c3c;
+    }
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .hero-container {
+      text-align: center;
+      background-color: #ebebeb;
+      padding-bottom: 10px;
+    }
+    .hero-details {
+      margin-bottom: 20px;
+      background-color: white;
+      margin-left: 20px;
+      margin-right: 20px;
+      padding: 30px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      grid-area: hero-details;
+    }
 
-        h1,
-        h2,
-        h3 {
-            line-height: 1.6;
-            color: #3c3c3c;
-        }
+    .hero-img img {
+      width: 100%;
 
-        * {
-            padding: 0;
-            margin: 0;
-        }
+      object-fit: contain;
+      grid-area: hero-img;
+    }
+    .anap-ph-logo {
+      height: 83.22px;
+      object-fit: contain;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .coming-soon {
+      height: 46.32px;
+    }
+    .input-group {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      align-items: center;
+    }
+    .input-group input[type="email"] {
+      border: 1px solid #707070;
+      width: 100%;
+      height: 45px;
+      border-radius: 30px;
+      padding-left: 20px;
+    }
+    .send {
+      background: linear-gradient(180deg, #ffd6d6 0%, #c47777 100%);
+      border: none;
+      width: 120px;
+      height: 50px;
+      position: absolute;
+      right: 35px;
+      float: right;
+      border-radius: 30px;
+    }
+    .socials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 15px;
+    }
+    .socials img {
+      margin-left: 10px;
+      height: 30px;
+    }
+    .socials > .instagram {
+      height: 35px;
+    }
+    .brand-lineup-container {
+      margin: 0;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
 
-        .hero-container {
-            text-align: center;
-            background-color: #ebebeb;
-            padding-bottom: 10px;
-        }
+      text-align: center;
+    }
 
-        .hero-details {
-            margin-bottom: 20px;
-            background-color: white;
-            margin-left: 20px;
-            margin-right: 20px;
-            padding: 30px;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            grid-area: hero-details;
-        }
+    .card img {
+      width: 80%;
+      align-items: center;
+    }
+    .subdescription,
+    .anap-kids-description h1,
+    .anap-subbrand-description,
+    .description,
+    .map-img-desc,
+    .map-title-text {
+      margin: 30px 75px;
+    }
+    .anap-kids-description h1 {
+      font-family: "Nunito Sans", "sans-serif";
+      font-weight: 300;
+      font-size: 18px;
+    }
+    .title,
+    .title-wrapper-with-link {
+      margin: 0;
+    }
+    .title h1 {
+      font-family: "Oswald", sans-serif;
+      font-size: 50px;
+      font-weight: 400;
+      margin: 36px 0px;
+    }
+    .anap-card img {
+      margin-top: 56px;
+    }
+    .description h2 {
+      font-family: "Nunito Sans", "sans-serif";
+      font-weight: 300;
+      font-size: 18px;
+    }
+    /* MAP CONTAINER */
 
-        .hero-img img {
-            width: 100%;
+    .map-container {
+      margin: 0;
+      background-color: white;
+      padding-top: 40px;
+      text-align: center;
+    }
+    .map-title-text h1 {
+      font-family: "Oswald", sans-serif;
+      font-size: 50px;
+      line-height: 1.2;
+    }
 
-            object-fit: contain;
-            grid-area: hero-img;
-        }
+    .map-img img {
+      width: 90%;
+      object-fit: contain;
+    }
+    .map-img-web {
+      display: none;
+    }
+    .map-img {
+      padding: 60px 45px;
+    }
+    .map-img-desc h2 {
+      font-family: "Nunito Sans", sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+    }
+    .branch-card img {
+      width: 100%;
+    }
 
-        .anap-ph-logo {
-            height: 83.22px;
-            object-fit: contain;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
+    /* Fumiya Container */
+    .fumiya-container {
+      text-align: center;
+    }
+    .fumiya-title-text h1 {
+      font-family: "Oswald", sans-serif;
+      font-size: 25px;
+      margin: 50px 30px;
+    }
+    video {
+      width: 100%;
+      height: auto;
+    }
 
-        .coming-soon {
-            height: 46.32px;
-        }
+    @media (min-width: 1280px) {
+      h1,
+      h2,
+      h3 {
+        line-height: 1.6;
+        color: #3c3c3c;
+      }
+      .hero-container {
+        margin: 0;
+        padding-top: 90px;
+        padding-bottom: 90px;
+        padding-left: 50px;
+        padding-right: 50px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+      }
+      .hero-details {
+        width: 100%;
+        background-color: white;
+        margin: 0;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        padding: 59px 195px;
 
-        .input-group {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-            align-items: center;
-        }
+        justify-content: center;
+      }
+      .send {
+        position: relative;
+      }
+      .hero-img img {
+        margin-top: 5px;
+        min-width: 473px;
+        max-width: 453px;
+        min-height: 511px;
+        max-height: 548px;
+      }
+      .anap-ph-logo {
+        height: 130px;
+      }
+      .coming-soon {
+        height: 80px;
+        margin-bottom: 30px;
+      }
+      input[type="email"] {
+        max-width: 920px;
+      }
 
-        .input-group input[type="email"] {
-            border: 1px solid #707070;
-            width: 100%;
-            height: 45px;
-            border-radius: 30px;
-            padding-left: 20px;
-        }
+      .title h1 {
+        margin-bottom: 30px;
+        font-size: 50px;
+      }
+      .description h2 {
+        font-size: 25px;
+        margin-bottom: 15px;
+      }
+      .anap-subbrand-description {
+        padding: 30px 46px;
+        display: flex;
+        text-align: left;
+        align-items: center;
+        background-color: #f5f5f5;
 
-        .send {
-            background: linear-gradient(180deg, #ffd6d6 0%, #c47777 100%);
-            border: none;
-            width: 120px;
-            height: 50px;
-            position: absolute;
-            right: 35px;
-            float: right;
-            border-radius: 30px;
-        }
+        grid-area: subbrand-description;
+      }
+      .subdescription {
+        grid-area: subdescription;
+        text-align: left;
 
-        .socials {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 15px;
-        }
-
-        .socials img {
-            margin-left: 10px;
-            height: 30px;
-        }
-
-        .socials > .instagram {
-            height: 35px;
-        }
-
-        .brand-lineup-container {
-            margin: 0;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-
-            text-align: center;
-        }
-
-        .brand-lineup-container .card-banner {
-            width: 100%;
-        }
-
-        .card img {
-            width: 80%;
-            align-items: center;
-        }
-
-        .subdescription,
-        .anap-kids-description h1,
-        .anap-subbrand-description,
-        .description,
-        .map-img-desc,
-        .map-title-text {
-            margin: 30px 75px;
-        }
-
-        .anap-kids-description h1 {
-
-            font-family: "Nunito Sans", "sans-serif";
-            font-weight: 300;
-            font-size: 18px;
-        }
-
-        .title,
-        .title-wrapper-with-link {
-            margin: 0;
-        }
-
-        .title h1 {
-            font-family: "Oswald", sans-serif;
-            font-size: 50px;
-            font-weight: 400;
-            margin: 15px 0px;
-        }
-
-        .anap-card img {
-            width: 100%;
-        }
-
-        .description h2 {
-            font-family: "Nunito Sans", "sans-serif";
-            font-weight: 300;
-            font-size: 18px;
-        }
-
-        /* MAP CONTAINER */
-
-        .map-container {
-            margin: 0;
-            background-color: white;
-            padding-top: 40px;
-            text-align: center;
-        }
-
-        .map-title-text h1 {
-            font-family: "Oswald", sans-serif;
-            font-size: 50px;
-            line-height: 1.2;
-        }
-
-        .map-img img {
-            width: 90%;
-            object-fit: contain;
-        }
-
-        .map-img-web {
-            display: none;
-        }
-
-        .map-img {
-            padding: 60px 45px;
-        }
-
-        .map-img-desc h2 {
-            font-family: "Nunito Sans", sans-serif;
-            font-weight: 400;
-            font-size: 17px;
-        }
-
-        .branch-card img {
-            width: 100%;
-        }
-
-        /* Fumiya Container */
-        .fumiya-container {
-            text-align: center;
-        }
-
-        .fumiya-title-text h1 {
-            font-family: "Oswald", sans-serif;
-            font-size: 25px;
-            margin: 50px 30px;
-        }
-
-        video {
-            width: 100%;
-            height: auto;
-        }
-
-
-        @media (min-width: 1280px) {
-            h1,
-            h2,
-            h3 {
-                line-height: 1.6;
-                color: #3c3c3c;
-            }
-
-            .hero-container {
-                margin: 0;
-                padding-top: 90px;
-                padding-bottom: 90px;
-                padding-left: 50px;
-                padding-right: 50px;
-                display: flex;
-                flex-direction: row-reverse;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .hero-details {
-                background-color: white;
-                margin: 0;
-                border-bottom-left-radius: 0px;
-                border-bottom-right-radius: 0px;
-                padding: 59px 195px;
-
-                justify-content: center;
-            }
-
-            .send {
-                position: relative;
-            }
-
-            .hero-img img {
-                margin-top: 5px;
-                min-width: 473px;
-                max-width: 453px;
-                min-height: 511px;
-                max-height: 548px;
-            }
-
-            .anap-ph-logo {
-                height: 130px;
-            }
-
-            .coming-soon {
-                height: 80px;
-                margin-bottom: 30px;
-            }
-
-            input[type="email"] {
-                max-width: 920px;
-            }
-
-            .title h1 {
-                margin-bottom: 30px;
-                font-size: 50px;
-            }
-
-            .description h2 {
-                font-size: 25px;
-                margin-bottom: 15px;
-            }
-
-            .anap-subbrand-description {
-                padding: 30px 46px;
-                display: flex;
-                text-align: left;
-                align-items: center;
-                background-color: #f5f5f5;
-
-                grid-area: subbrand-description;
-            }
-
-            .subdescription {
-                grid-area: subdescription;
-                text-align: left;
-
-                margin: 0px 0px 0px 0px;
-            }
-
-            /* Brand Lineup Container */
-            .brand-lineup-container {
-                background-color: white;
-                display: grid;
-                padding: 50px 100px;
-                margin: 0;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                column-gap: 20px;
-                grid-template-areas:
+        margin: 0px 0px 0px 0px;
+      }
+      /* Brand Lineup Container */
+      .brand-lineup-container {
+        background-color: white;
+        display: grid;
+        padding: 50px 100px;
+        margin: 0;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-gap: 20px;
+        grid-template-areas:
           "title title title title"
           "description description description description"
           "subdescription subdescription subdescription subdescription"
           "anap-card anap-mimpi-card anap-chille-card anap-latina-card"
           "anap-girl anap-kids anap-settissimo anap-anlibery"
           "anap-kids-desc subbrand-description subbrand-description subbrand-description ";
-            }
+      }
 
-            .card img,
-            .card-banner {
-                object-fit: contain;
-                width: 70%;
-            }
+      .card img,
+      .card-banner {
+        object-fit: contain;
+        width: 70%;
+      }
+      .title {
+        font-family: "Oswald", sans-serif;
+        grid-area: title;
+        text-align: left;
+      }
+      .description {
+        margin: 0;
+        font-family: "Nunito Sans", "sans-serif";
+        font-weight: 300;
+        font-size: 18px;
+        grid-area: description;
+        text-align: left;
+      }
 
-            .title {
-                font-family: "Oswald", sans-serif;
-                grid-area: title;
-                text-align: left;
-            }
+      .card img {
+        padding: 0;
+        margin: 0;
+      }
+      .anap-card,
+      .anap-mimpi,
+      .anap-chille,
+      .anap-latina {
+        margin-top: 50px;
+      }
+      .anap-card {
+        grid-area: anap-card;
+      }
+      .anap-mimpi {
+        grid-area: anap-mimpi-card;
+      }
+      .anap-chille {
+        grid-area: anap-chille-card;
+      }
+      .anap-latina {
+        grid-area: anap-latina-card;
+      }
+      .anap-girl-card {
+        grid-area: anap-girl;
+      }
+      .anap-kids-card {
+        grid-area: anap-kids;
+      }
+      .anap-settissimo-card {
+        grid-area: anap-settissimo;
+      }
+      .anap-anliberty-card {
+        grid-area: anap-anliberty;
+      }
+      .anap-kids-description h1 {
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 17px;
+        font-weight: 300;
+        margin: 0;
+        width: 100%;
+        padding: 10px;
+        background-color: #f5f5f5;
+      }
+      .anap-kids-description {
+        padding: 30px 40px;
+        margin: 0;
+        display: flex;
+        text-align: left;
+        align-items: center;
 
-            .description {
-                margin: 0;
-                font-family: "Nunito Sans", "sans-serif";
-                font-weight: 300;
-                font-size: 18px;
-                grid-area: description;
-                text-align: left;
-            }
-
-            .card img {
-                padding: 0;
-                margin: 0;
-            }
-
-            .anap-card,
-            .anap-mimpi,
-            .anap-chille,
-            .anap-latina {
-                margin-top: 50px;
-            }
-
-            .anap-card {
-                grid-area: anap-card;
-            }
-
-            .anap-mimpi {
-                grid-area: anap-mimpi-card;
-            }
-
-            .anap-chille {
-                grid-area: anap-chille-card;
-            }
-
-            .anap-latina {
-                grid-area: anap-latina-card;
-            }
-
-            .anap-girl-card {
-                grid-area: anap-girl;
-            }
-
-            .anap-kids-card {
-                grid-area: anap-kids;
-            }
-
-            .anap-settissimo-card {
-                grid-area: anap-settissimo;
-            }
-
-            .anap-anliberty-card {
-                grid-area: anap-anliberty;
-            }
-
-            .anap-kids-description h1 {
-                font-family: "Nunito Sans", sans-serif;
-                font-size: 17px;
-                font-weight: 300;
-                margin: 0;
-                width: 100%;
-                padding: 10px;
-                background-color: #f5f5f5;
-            }
-
-            .anap-kids-description {
-                padding: 30px 40px;
-                margin: 0;
-                display: flex;
-                text-align: left;
-                align-items: center;
-
-                grid-area: anap-kids-desc;
-            }
-
-            .map-container {
-                margin: 0;
-                background-color: white;
-                padding: 50px 100px;
-                display: grid;
-                grid-template-columns: 3;
-                grid-template-areas:
+        grid-area: anap-kids-desc;
+      }
+      .map-container {
+        margin: 0;
+        background-color: white;
+        padding: 50px 100px;
+        display: grid;
+        grid-template-columns: 3;
+        grid-template-areas:
           "map-title map-title map-title"
           "map-img map-img map-img"
           "map-desc map-desc map-desc"
           "branch-1 branch-2 branch-3";
-            }
+      }
+      .map-img-desc {
+        margin: 50px 450px;
 
-            .map-img-desc {
-                margin: 50px 450px;
+        grid-area: map-desc;
+      }
+      .map-img-desc h2 {
+        font-size: 17px;
+      }
+      .map-img-web img {
+        margin-top: 55px;
+        width: 85%;
+        object-fit: contain;
+      }
+      .map-img-web {
+        display: block;
+        grid-area: map-img;
+      }
+      .map-img {
+        display: none;
+      }
+      .map-title-text > h1 {
+        font-size: 40px;
+      }
+      .map-title-text {
+        margin: 0;
 
-                grid-area: map-desc;
-            }
+        text-align: left;
+        grid-area: map-title;
+      }
+      .branch-card > img {
+        width: 90%;
+      }
 
-            .map-img-desc h2 {
-                font-size: 17px;
-            }
-
-            .map-img-web img {
-                margin-top: 55px;
-                width: 85%;
-                object-fit: contain;
-            }
-
-            .map-img-web {
-                display: block;
-                grid-area: map-img;
-            }
-
-            .map-img {
-                display: none;
-            }
-
-            .map-title-text > h1 {
-                font-size: 40px;
-            }
-
-            .map-title-text {
-                margin: 0;
-
-                text-align: left;
-                grid-area: map-title;
-            }
-
-            .branch-card > img {
-                width: 90%;
-            }
-
-            .branch-1 {
-                grid-area: branch-1;
-            }
-
-            .branch-2 {
-                grid-area: branch-2;
-            }
-
-            .branch-3 {
-                grid-area: branch-3;
-            }
-
-            .fumiya-container {
-                background-color: #fafafa;
-                padding: 50px 100px;
-            }
-
-            .fumiya-title-text h1 {
-                text-align: left;
-                font-size: 30px;
-                margin-bottom: 20px 0px;
-            }
-
-            video {
-                width: 80%;
-                height: auto;
-            }
-        }
-
-        @media (min-width: 1440px) {
-            h1,
-            h2,
-            h3 {
-                line-height: 1.6;
-            }
-        }
-
-        @media (min-width: 1920px) {
-            h1,
-            h2,
-            h3 {
-                line-height: 1.6;
-            }
-        }
-    </style>
+      .branch-1 {
+        grid-area: branch-1;
+      }
+      .branch-2 {
+        grid-area: branch-2;
+      }
+      .branch-3 {
+        grid-area: branch-3;
+      }
+      .fumiya-container {
+        background-color: #fafafa;
+        padding: 50px 100px;
+      }
+      .fumiya-title-text h1 {
+        text-align: left;
+        font-size: 30px;
+        margin-bottom: 20px 0px;
+      }
+      video {
+        width: 80%;
+        height: auto;
+      }
+    }
+    @media (min-width: 1440px) {
+      h1,
+      h2,
+      h3 {
+        line-height: 1.6;
+      }
+    }
+    @media (min-width: 1920px) {
+      h1,
+      h2,
+      h3 {
+        line-height: 1.6;
+      }
+    }
+  </style>
 {% endblock %}
 {% block content %}
 
-    <div class="hero-container">
-        <div class="hero-img">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/Mask_Group_1_2x_da1a735a-86eb-4b28-9a2d-7c7182c2c119.png?v=1688457348"
-                 alt="">
-        </div>
-        <div class="hero-details">
-            <img class="anap-ph-logo"
-                 src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/ANAP_LOGO_PH-removebg-preview.png?v=1688959479"
-                 alt="">
-            <br>
-            <img class="coming-soon"
-                 src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/coming-soon.png?v=1690168098" alt="">
-            <h1 class="notify-desc" style="font-family: Raleway; color: #8b8b8b; font-size: 20px">
-                Get Notify when we launch
-            </h1>
-            <div class="input-group">
-                <input type="email" placeholder="Email Address" id="">
-                <button class="send" type="submit">
-                    <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/right_arrow.svg?v=1690184174"
-                         alt="">
-                </button>
-            </div>
-            <div class="socials">
-                <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/facebook-social.png?v=1690184439"
-                     alt="facebook">
-                <img class="instagram"
-                     src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/instagram-social.svg?v=1690184553"
-                     alt="instagram">
-                <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/tiktok-social.png?v=1690184421"
-                     alt="tiktok">
-                <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/youtube-social.png?v=1690184491"
-                     alt="youtube">
-            </div>
-        </div>
+  <div class="hero-container">
+    <div class="hero-img">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/Mask_Group_1_2x_da1a735a-86eb-4b28-9a2d-7c7182c2c119.png?v=1688457348" alt="">
     </div>
-    <div class="brand-lineup-container">
-        <div class="card-banner card anap-card">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-card.png?v=1690254039"
-                 alt="ANAP Card">
-        </div>
+    <div class="hero-details">
+      <img class="anap-ph-logo" src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/ANAP_LOGO_PH-removebg-preview.png?v=1688959479" alt="">
+      <br>
+      <img class="coming-soon" src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/coming-soon.png?v=1690168098" alt="">
+      <h1 class="notify-desc" style="font-family: Raleway; color: #8b8b8b; font-size: 20px">
+        Get Notify when we launch
+      </h1>
+      <div class="input-group">
+        <input type="email" placeholder="Email Address" id="">
+        <button class="send" type="submit">
+          <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/right_arrow.svg?v=1690184174" alt="">
+        </button>
+      </div>
+      <div class="socials">
+        <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/facebook-social.png?v=1690184439" alt="facebook">
+        <img class="instagram" src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/instagram-social.svg?v=1690184553" alt="instagram">
+        <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/tiktok-social.png?v=1690184421" alt="tiktok">
+        <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/youtube-social.png?v=1690184491" alt="youtube">
+      </div>
+    </div>
+  </div>
+  <div class="brand-lineup-container">
+    <div class="card-banner card anap-card">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-card.png?v=1690254039" alt="ANAP Card">
+    </div>
 
-        <div class="subdescription">
-            <h3 style="font-family: 'Nunito Sans', sans-serif; font-weight: 300">
-                We offer a wide range of products at reasonable prices, including
-                national brands supported by a wide range of age groups, standard items,
-                trendy items, and unique items, with a number of items that cannot be
-                found anywhere else.
-            </h3>
-        </div>
+    <div class="subdescription">
+      <h3 style="font-family: 'Nunito Sans', sans-serif; font-weight: 300">
+        We offer a wide range of products at reasonable prices, including
+        national brands supported by a wide range of age groups, standard items,
+        trendy items, and unique items, with a number of items that cannot be
+        found anywhere else.
+      </h3>
+    </div>
 
-        <div class="card anap-girl-card">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-girl-card.png?v=1690254039"
-                 alt="ANAP Girl">
-        </div>
-        <div class="card anap-kids-card">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-kids-card.png?v=1690254239"
-                 alt="ANAP Kids">
-        </div>
-        <div class="anap-kids-description">
-            <h1>
-                Kids sizes of the same items as <strong>ANAP</strong>. The brand that
-                junior customers who have outgrown kids wear can enjoy the
-                <strong>ANAP</strong> style.
-            </h1>
-        </div>
-        <div class="title">
-            <h1>Brand Lineup</h1>
-        </div>
-        <div class="description">
-            <h2>
-                Develops a total of 8 brands, including the core brand
-                <strong>ANAP</strong> and sub-brands with different concepts.
-            </h2>
-        </div>
+    <div class="card anap-girl-card">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-girl-card.png?v=1690254039" alt="ANAP Girl">
+    </div>
+    <div class="card anap-kids-card">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-kids-card.png?v=1690254239" alt="ANAP Kids">
+    </div>
+    <div class="anap-kids-description">
+      <h1>
+        Kids sizes of the same items as <strong>ANAP</strong>. The brand that
+        junior customers who have outgrown kids wear can enjoy the
+        <strong>ANAP</strong> style.
+      </h1>
+    </div>
+    <div class="title">
+      <h1>Brand Lineup</h1>
+    </div>
+    <div class="description">
+      <h2>
+        Develops a total of 8 brands, including the core brand
+        <strong>ANAP</strong> and sub-brands with different concepts.
+      </h2>
+    </div>
 
-        <div class="card anap-mimpi">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-mimpi-card.png?v=1690254039"
-                 alt="ANAP Mimpi">
-        </div>
-        <div class="card anap-chille">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-chille-card.png?v=1690254039"
-                 alt="ANAP Chille">
-        </div>
-        <div class="card anap-latina">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-latina-card.png?v=1690254039"
-                 alt="ANAP Latina">
-        </div>
-        <div class="card anap-settimissimo-card">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-settimissimo-card.png?v=1690254039"
-                 alt="ANAP Settimissimo">
-        </div>
-        <div class="card anap-annliberty-card">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-anliberty-card.png?v=1690254039"
-                 alt="ANAP Anlibery">
-        </div>
-        <div class="anap-subbrand-description">
-            <h1 style="
+    <div class="card anap-mimpi">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-mimpi-card.png?v=1690254039" alt="ANAP Mimpi">
+    </div>
+    <div class="card anap-chille">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-chille-card.png?v=1690254039" alt="ANAP Chille">
+    </div>
+    <div class="card anap-latina">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-latina-card.png?v=1690254039" alt="ANAP Latina">
+    </div>
+    <div class="card anap-settimissimo-card">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-settimissimo-card.png?v=1690254039" alt="ANAP Settimissimo">
+    </div>
+    <div class="card anap-annliberty-card">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/anap-anliberty-card.png?v=1690254039" alt="ANAP Anlibery">
+    </div>
+    <div class="anap-subbrand-description">
+      <h1 style="
           font-family: 'Nunito Sans', 'sans-serif';
           font-weight: 300;
           font-size: 20px;
         ">
-                Developed as a sub-brand of <strong>ANAP</strong>. Resort & surf casual,
-                girly taste, Sophisticated style with sexy and volume, casual and cool,
-                etc. The themes and brand concepts are diverse.
-            </h1>
-        </div>
+        Developed as a sub-brand of <strong>ANAP</strong>. Resort & surf casual,
+        girly taste, Sophisticated style with sexy and volume, casual and cool,
+        etc. The themes and brand concepts are diverse.
+      </h1>
     </div>
-    <div class="map-container">
-        <div class="map-title-text">
-            <h1>ANAP store nationwide</h1>
-        </div>
-        <div class="map-img-web">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/map-img-web.png?v=1690397475" alt="">
-        </div>
-        <div class="map-img">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/map-mobile.png?v=1690395416" alt="">
-        </div>
-        <div class="map-img-desc">
-            <h2>
-                37 stores in major cities throughout Japan, mainly in the Kanto region
-                (As of May 31, 2023)
-            </h2>
-        </div>
-        <div class="branch-card branch-1">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/AEON_Laketown_Kaze_branch.png?v=1690399061"
-                 alt="">
-        </div>
-        <div class="branch-card branch-2">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/MARK_IS_Shizuoka_branch.png?v=1690396667"
-                 alt="">
-        </div>
-        <div class="branch-card branch-3">
-            <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/ANLIBERTY_Shibuya_109_branch.png?v=1690396666"
-                 alt="">
-        </div>
+  </div>
+  <div class="map-container">
+    <div class="map-title-text">
+      <h1>ANAP store nationwide</h1>
     </div>
-    <div class="fumiya-container">
-        <div class="fumiya-title-text">
-            <h1>“Ex-PBB housemate Fumiya Sankai visits ANAP HARAJUKU branch”</h1>
-        </div>
-        <video width="320" height="240" controls>
-            <source src="https://cdn.shopify.com/videos/c/o/v/011c0467cd53441d9a187567b58de21c.mp4"
-                    type="video/mp4"></source>
-            Your browser does not support the video tag.
-        </video>
+    <div class="map-img-web">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/map-img-web.png?v=1690397475" alt="">
     </div>
+    <div class="map-img">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/map-mobile.png?v=1690395416" alt="">
+    </div>
+    <div class="map-img-desc">
+      <h2>
+        37 stores in major cities throughout Japan, mainly in the Kanto region
+        (As of May 31, 2023)
+      </h2>
+    </div>
+    <div class="branch-card branch-1">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/AEON_Laketown_Kaze_branch.png?v=1690399061" alt="">
+    </div>
+    <div class="branch-card branch-2">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/MARK_IS_Shizuoka_branch.png?v=1690396667" alt="">
+    </div>
+    <div class="branch-card branch-3">
+      <img src="https://cdn.shopify.com/s/files/1/0759/3223/8111/files/ANLIBERTY_Shibuya_109_branch.png?v=1690396666" alt="">
+    </div>
+  </div>
+  <div class="fumiya-container">
+    <div class="fumiya-title-text">
+      <h1>“Ex-PBB housemate Fumiya Sankai visits ANAP HARAJUKU branch”</h1>
+    </div>
+    <video width="320" height="240" controls>
+      <source src="https://cdn.shopify.com/videos/c/o/v/011c0467cd53441d9a187567b58de21c.mp4" type="video/mp4"></source>
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
 {% endblock %}
