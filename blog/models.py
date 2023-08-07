@@ -21,7 +21,11 @@ class TestPage(Page):
         FieldPanel('intro')
     ]
 
-
+class TestTwoPage(Page):
+    intro = models.CharField(max_length=250)
+    content_panels = Page.content_panels + [
+        FieldPanel('intro')
+    ]
 class BlogPage(Page):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)

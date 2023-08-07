@@ -1,0 +1,454 @@
+{% extends 'base.html' %}
+{% block extra_css %}
+    <style>
+        * {
+            line-height: 2.5;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hero-container {
+            object-fit: contain;
+            background: url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/background-image.png");
+            height: 100vh;
+            background-size: cover; /* Makes sure the image covers the whole div */
+            background-position: center; /* Centers the image within the div */
+            background-repeat: no-repeat;
+            align-items: center;
+        }
+
+        .header-container {
+            align-items: center;
+            margin: 10px 100px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left-text-1 p {
+            color: white;
+            font-family: "Noto Sans JP", "sans-serif";
+            font-weight: 300;
+            font-size: 40px;
+            position: absolute;
+            left: 168px;
+            top: 200px;
+        }
+
+        .right-text-1 p {
+            color: white;
+            font-family: "Noto Sans JP", "sans-serif";
+            font-weight: 300;
+            font-size: 30px;
+            position: absolute;
+            left: 700px;
+        }
+
+        .right-text-1 p {
+            color: white;
+            font-family: "Noto Sans JP", "sans-serif";
+            font-weight: 300;
+            font-size: 30px;
+            position: absolute;
+            margin-left: 300px;
+        }
+
+        .hero-container > .right-text-1 {
+            margin-left: auto;
+        }
+
+        .small-text {
+            font-size: 35px;
+        }
+
+        .large-text {
+            font-size: 40px;
+        }
+
+        .hero-image {
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero-image img {
+            width: 80%;
+            object-fit: cover;
+            margin-top: 75px;
+            text-align: center;
+        }
+
+        .what-can-you-do {
+            background-color: none;
+
+            width: 100%;
+
+            text-align: center;
+        }
+
+        .what-can-you-do img {
+            width: 50%;
+            object-fit: cover;
+            margin-top: 75px;
+            text-align: center;
+        }
+
+        .button1 img {
+            width: 20%;
+            object-fit: cover;
+            margin-top: 75px;
+            text-align: center;
+        }
+
+        .section-2 {
+            background-color: #06587c;
+            text-align: center;
+            padding: 40px 170px;
+            padding-bottom: 100px;
+        }
+
+        .section-4 {
+            background-color: #06587c;
+            text-align: center;
+            padding: 40px 130px;
+            padding-bottom: 100px;
+        }
+
+        .button-3 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .button-3 img {
+            margin-top: 40px;
+            width: 35%;
+        }
+
+        .button-1 img {
+            width: 35%;
+            object-fit: contain;
+        }
+
+        .button-2 img {
+            margin-top: 40px;
+            width: 46%;
+            object-fit: contain;
+        }
+
+        .section-text-bullet {
+            display: flex;
+        }
+
+        .section-text,
+        .section-text-2 {
+            padding: 20px 55px;
+            font-family: "Noto Sans JP", "sans-serif";
+            /* Align the text to the left */
+            text-align: left;
+            color: white;
+            /* Border */
+            border: 1px solid white;
+
+            /* Set a width (can be adjusted based on content or preference) */
+            width: auto;
+
+            /* Center the div itself horizontally */
+            margin: 0 auto;
+        }
+
+        .description {
+            display: flex;
+            font-family: "Noto Sans JP", "sans-serif";
+            /* Align the text to the left */
+            align-items: top;
+            text-align: left;
+            color: white;
+            /* Border */
+
+            /* Set a width (can be adjusted based on content or preference) */
+            width: 80%;
+
+            /* Center the div itself horizontally */
+            margin: 0 auto;
+        }
+
+        .description section {
+            font-size: 20px;
+            font-weight: 300;
+            font-size: 20px;
+        }
+
+        .section-text-bullet {
+            margin-top: 40px;
+        }
+
+        .section-text h1 {
+            font-weight: 300;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .section-text section {
+            font-weight: 300;
+            font-size: 19px;
+        }
+
+        .bullet-1-img {
+            align-items: top;
+            width: 30px;
+        }
+
+        .title-bullet {
+            font-weight: 300;
+            font-size: 20px;
+            margin-left: 5px;
+        }
+
+        .description .img-bullet img {
+            align-items: top;
+        }
+
+        .section-text-container-2 img {
+            margin-top: 60px;
+            width: 90%;
+            justify-content: left;
+            margin-left: 23px;
+        }
+
+        .section-text-container-2 {
+            display: flex;
+        }
+
+        .section-text {
+            text-align: left;
+        }
+
+        .section-text-container-3,
+        .section-text-4,
+        .section-text-5 {
+            display: flex;
+        }
+
+        .section-text-container-3 img,
+        .section-text-4 img,
+        .section-text-5 img {
+            width: 50%;
+            justify-content: left;
+            margin-left: 42px;
+        }
+
+        .section-text-4 img,
+        .section-text-5 img {
+            margin-top: 70px;
+            width: 85%;
+            margin-left: 20px;
+        }
+
+        .section-text-image-1 img {
+            width: 40%;
+            margin: 30px 0px;
+        }
+
+        .section-text-6 {
+            display: flex;
+            justify-content: left;
+            background-color: #06587c;
+        }
+
+        .section-text-6 img {
+            width: 50%;
+            justify-content: left;
+            margin-left: 42px;
+        }
+
+        .img-2 {
+            display: flex;
+
+            width: 100%;
+            justify-content: center;
+        }
+
+        .img-2 img {
+            width: 100%;
+            margin: 40px 0px;
+        }
+
+        .img-3 {
+            display: flex;
+
+            width: 100%;
+            justify-content: center;
+        }
+
+        .img-3 img {
+            margin-top: 150px;
+            width: 65%;
+        }
+
+        .ml-5 {
+            margin-left: 50px;
+        }
+
+        .section-3 {
+            padding-bottom: 100px;
+        }
+
+        .w-30 img {
+            width: 90%;
+        }
+
+        .w-medium img {
+            width: 60%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="header-container">
+        <div class="logo">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/Philip%20Logo.png"
+                    alt=""
+            />
+        </div>
+        <div class="button-4">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/button-4.png"
+                    alt=""
+            />
+        </div>
+    </div>
+    <div class="hero-container">
+        <div class="hero-wrapper">
+            <div class="hero-image">
+                <img
+                        src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/hero-image-with-text.png"
+                        alt=""
+                        srcset=""
+                />
+            </div>
+            <div class="what-can-you-do">
+                <img
+                        src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/hero-picture-banner.png"
+                        alt=""
+                />
+            </div>
+        </div>
+    </div>
+    <div class="section-2">
+        <div class="button-1">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/button-1.png"
+                    alt=""
+            />
+            <div class="section-text-container">
+                <div class="section-text">
+                    <h1 class="title">先物取引とは?</h1>
+                    <section>
+                        「ある商品を将来の時点での一定の日に、取引の時点で一定の価格で買う、または売る約束をする取引」です。<br/>
+                        先物取引の大きな特徴は 3
+                        つ。※このページではもっとも取引枚数の多い「日経 225
+                        ミニ」を基準にご説明していきます。
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="section-text-container-2">
+            <img src="assets/section2-text-1.png" alt=""/>
+        </div>
+        <div class="section-text-image-1">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/section-2-image.png"
+                    alt=""
+            />
+        </div>
+        <div class="section-text-container-3">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/section-text-3.png"
+                    alt=""
+            />
+        </div>
+        <div class="section-text-4">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/section-text-4.png"
+                    alt=""
+            />
+        </div>
+        <div class="section-text-5">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/section-text-5.png"
+                    alt=""
+            />
+        </div>
+        <div class="button-2">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/button-2.png"
+                    alt=""
+            />
+        </div>
+        <div class="section-text-5">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/section-text-6-1.png"
+                    alt=""
+            />
+        </div>
+        <div class="section-text-5">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/section-text-7.png"
+                    alt=""
+            />
+        </div>
+        <div class="img-2">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/section-2-image-2.png"
+                    alt=""
+            />
+        </div>
+        <div class="section-text-5 ml-5">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/section-text.png"
+                    alt=""
+            />
+        </div>
+        <div class="section-text-5">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/section-text-8.png"
+                    alt=""
+            />
+        </div>
+    </div>
+    <div class="section-3">
+        <div class="button-3">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/button-3.png"
+                    alt=""
+            />
+        </div>
+        <div class="section-text-5 w-30" style="padding: 0px 228px">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/your%20partner%20in%20finance.png"
+                    alt=""
+            />
+        </div>
+        <div class="hr" style="display: flex; justify-content: center">
+            <hr style="margin-top: 150px; width: 90%; color: #707070"/>
+        </div>
+        <div
+                class="section-text-5 w-medium"
+                style="display: flex; justify-content: center; margin-top: 50px"
+        >
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/section-3-text-2.png"
+                    alt=""
+            />
+        </div>
+        <div class="img-3">
+            <img
+                    src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/section-3-img-2.png"
+                    alt=""
+            />
+        </div>
+    </div>
+    <div class="section-4" style="padding-top: 130px;">
+        <img src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/section-4-text.png" alt="">
+    </div>
+{% endblock %}
