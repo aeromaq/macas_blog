@@ -3,26 +3,55 @@
     <style>
         @font-face {
             font-family: 'A-OTF-ShinGoPro' ;
-            src: url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/fonts/A-OTF-ShinGoPro-Light.woff");
+            src: url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/fonts/A-OTF-ShinGoPro-Light.woff") format('woff');
             font-weight: 300;
+            font-style: normal;
         }
 
         @font-face {
             font-family: 'A-OTF-ShinGoPro' ;
-            src: url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/fonts/A-OTF-ShinGoPro-Regular.woff");
+            src: url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/fonts/A-OTF-ShinGoPro-Regular.woff") format('woff') ;
             font-weight: 400;
+            font-style: normal;
         }
 
         @font-face {
             font-family: 'A-OTF-ShinGoPro' ;
-            src: url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/fonts/A-OTF-ShinGoPro-Medium.woff");
+            src: url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/fonts/A-OTF-ShinGoPro-Medium.woff") format('woff'),
+            url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/fonts/A-OTF-ShinGoPro-Medium.otf") format("opentype"),
+            url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/fonts/A-OTF-ShinGoPro-Meium.woff2") format("woff2");
             font-weight: 500;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'A-OTF-ShinGoPro' ;
+            src: url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/fonts/A-OTF-ShinGoPro-Bold.woff") format('woff'),
+            url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/fonts/A-OTF-ShinGoPro-Bold.otf") format("opentype"),
+            url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/fonts/A-OTF-ShinGoPro-Bold.woff2") format("woff2");
+
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'A-OTF-ShinGoPro' ;
+            src: url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/fonts/A-OTF-ShinGoPro-Heavy.woff") format('woff'),
+            url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/fonts/A-OTF-ShinGoPro-Heavy.woff2") format("woff2");
+
+            font-weight: 700;
+            font-style: normal;
         }
 
         * {
             margin: 0;
             padding: 0;
             font-family: 'A-OTF-ShinGoPro';
+        }
+
+        .text-1 h2 {
+            font-size: 28px;
+            font-weight: 600;
         }
 
         .header-container {
@@ -35,7 +64,7 @@
 
         .hero-container {
             object-fit: contain;
-            background: url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/hero-bg-img.png");
+            background: url("https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/hero-background-image.png");
             height: 100vh;
             background-size: cover; /* Makes sure the image covers the whole div */
             background-position: center; /* Centers the image within the div */
@@ -66,7 +95,7 @@
         }
 
         .title {
-            font-weight: 300;
+            font-weight: 600;
             align-items: center;
         }
 
@@ -213,9 +242,9 @@
 
         .box-text {
             margin-top: 90px;
-            padding: 50px 80px;
+            padding: 16px 38px;
             color: white;
-            border: 3px solid white;
+            border: 1px solid white;
             line-height: 2.5;
             width: 80%;
         }
@@ -227,11 +256,12 @@
         }
 
         .box-text h1 {
+            font-weight: 600;
             font-size: 25px;
         }
 
         .box-text h2 {
-            font-size: 17px;
+            font-size: 15px;
         }
 
         .text-number {
@@ -376,6 +406,7 @@
 {% endblock %}
 
 {% block content %}
+
     <div class="header-container" style="display: flex; align-items: center; justify-content: space-between;">
         <div class="logo">
             <img
@@ -388,18 +419,19 @@
          background-color: #FF9300;
          border: 5px solid #C37000;
          border-radius: 20px;
-         font-family:'Noto Sans JP';
          color: white;
          font-weight: 300;
-         font-size: 18px;
+         font-size: 20px;
          padding: 7px 12px;
+         text-align: left;
          ">
-            最短当日取引開始！<br>
-            口座開設はこちら
+        <span style="font-family: 'A-OTF-ShinGoPro', 'sans-serif';
+                     font-size: 18px;">最短当日取引開始 !</span><br>
+            <span style="font-weight: 600; font-family: 'A-OTF-ShinGoPro', 'sans-serif';">口座開設はこちら</span>
         </div>
     </div>
     <div class="hero-container">
-        <img src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/hero-img.png" alt="">
+        <img src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/hero-img-2.png" alt="">
         <div class="hero-description">
             <h1 class="title">
                 フィリップ証券のオンライン先物取引でできること
@@ -451,15 +483,15 @@
                  style="text-align: center;
          background-color: #FF9300;
          border-radius: 20px;
-         font-family:'Noto Sans JP';
+         font-family:'A-OTF-ShinGoPro';
          color: white;
          font-weight: 300;
          font-size: 40px;
          box-shadow: 5px 5px 3px 0px rgba(0, 0, 0, 0.25);
          padding: 25px 25px;
          justify-content: center;
-         "><span style="font-size: 27px;">最短当日取引開始！</span><br>
-                口座開設はこちら
+         "><span style="font-size: 27px; ">最短当日取引開始！</span><br>
+                <span style="font-weight: 500;">口座開設はこちら</span>
             </div>
         </div>
         <div class="box-text">
@@ -467,8 +499,8 @@
                 先物取引とは?
             </h1>
             <h2>
-                先物取引は、スタート時の値段【買建価格(買いで始めた場合の値段)】または【売建価格(売りで始めた場合 の値段)】と <br>
-                先物取引の大きな特徴は 3 つ。※このページではもっとも取引枚数の多い「日経 225 ミニ」を基準にご説明していきます。<br>
+                「ある商品を将来の時点での一定の日に、取引の時点で一定の価格で買う、または売る約束をする取引」です。<br>
+                先物取引の大きな特徴は 3 つ。※このページではもっとも取引枚数の多い「日経 225 ミニ」を基準にご説明していきます。
             </h2>
         </div>
         <div class="paragraph" style="margin-top: 65px;">
@@ -550,7 +582,7 @@
                  style="text-align: center;
          background-color: #FF9300;
          border-radius: 20px;
-         font-family:'Noto Sans JP';
+         font-family:'A-OTF-ShinGoPro';
          color: white;
          font-weight: 300;
          font-size: 40px;
@@ -558,12 +590,12 @@
          padding: 25px 25px;
          justify-content: center;
          "><span class="text-lg" style="font-size: 27px;">最短当日取引開始！</span><br>
-                口座開設はこちら
+                <span style="font-weight: 600">口座開設はこちら</span>
             </div>
 
         </div>
-        <div class="text">
-            <h2 style="margin:80px 0px;">フィリップ証券のオンライン先物取引でできること</h2>
+        <div class="text-1">
+            <h2 style="margin:80px 0px; color: white; ">フィリップ証券のオンライン先物取引でできること</h2>
         </div>
         <div class="paragraph">
             <div class="text-number">
@@ -687,7 +719,7 @@
     </div>
     <div class="section-4">
         <div class="paragraph-center" style="font-size:20px;">
-            <p>お取引までの流れ <br>
+            <p style="font-weight: 300;"><span style="font-weight: 700;">お取引までの流れ</span> <br>
                 おススメの方法-【スマホで本人認証 <span class="text-md">(eKYC)</span>】<br>
                 お手元にマイナンバーカードがあれば、申込後に届くメールに記載の <span class="text-md">URL</span> にアクセスして書類の画像とご本人 <br>
                 の画像を撮影することで書類提出完了、最短で当日にお取引開始していただけます。
@@ -704,8 +736,8 @@
             <div class="row" style="margin-top: 85px;">
                 <div class="box-item">
                     <img src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/step-1.png" alt="">
-                    <p>口座開設申込フォームに必要事項を
-                        入力してください。<br><br>
+                    <p><span style="font-weight: 500">口座開設申込フォームに必要事項を
+                    入力してください。</span><br><br>
                         お申し込み完了後、確認メール記載の
                         リンクよりご本人確認書類をご提出、
                         または郵送にて送付ください。
@@ -713,8 +745,8 @@
                 </div>
                 <div class="box-item">
                     <img src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/step-2.png" alt="">
-                    <p>弊社にてご本人確認書類を確認および
-                        弊社所定の審査を行います。<br><br>
+                    <p> <span style="font-weight: 500">弊社にてご本人確認書類を確認および
+                    弊社所定の審査を行います。</span><br><br>
                         ご本人確認書類については
                         メール等では受理できませんので
                         ご注意ください。
@@ -722,9 +754,9 @@
                 </div>
                 <div class="box-item">
                     <img src="https://macas-tech.sgp1.cdn.digitaloceanspaces.com/philip-capital/step-3.png" alt="">
-                    <p>審査完了後、取引システムへの
-                        ログインに必要となる情報をご登録の
-                        メールアドレス宛に送付いたします。<br><br>
+                    <p> <span style="font-weight: 500">審査完了後、取引システムへの
+                    ログインに必要となる情報をご登録の
+                    メールアドレス宛に送付いたします。</span><br><br>
                         ログイン後、お取引が可能と
                         なります
                     </p>
@@ -851,4 +883,5 @@
 
 
     </div>
+
 {% endblock %}
